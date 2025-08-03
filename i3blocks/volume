@@ -1,0 +1,10 @@
+#!/bin/bash
+
+vol=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -o '[0-9]\+%' | head -1)
+mute=$(pactl get-sink-mute @DEFAULT_SINK@ | grep -o yes)
+
+if [ "$mute" = "yes" ]; then
+    echo "muted"
+else
+    echo "$vol"
+fi
