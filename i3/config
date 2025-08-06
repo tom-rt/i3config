@@ -182,19 +182,17 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+bindsym Pause exec --no-startup-id ~/.config/i3/volume-cap.sh up
+bindsym Scroll_Lock exec --no-startup-id ~/.config/i3/volume-cap.sh down
+bindsym Print exec --no-startup-id ~/.config/i3/volume-cap.sh toggle
+bindsym $mod+l exec --no-startup-id i3lock -i ~/Pictures/wpp-firewatch.png
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
 bar {
 	position top
         status_command i3blocks
 }
 
-exec_always --no-startup-id setxkbmap -layout us,fr -option 'grp:mod_space_toggle'
-#bindsym Pause exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-#bindsym Scroll_Lock exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-#bindsym Print exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+exec_always --no-startup-id feh --bg-fill ~/Pictures/wpp-firewatch.png
+exec_always --no-startup-id redshift -l 48.8566:2.3522
+exec_always --no-startup-id setxkbmap -layout us,fr -option 'grp:ctrl_space_toggle'
 
-bindsym Pause exec --no-startup-id ~/.config/i3/volume-cap.sh up
-bindsym Scroll_Lock exec --no-startup-id ~/.config/i3/volume-cap.sh down
-bindsym Print exec --no-startup-id ~/.config/i3/volume-cap.sh toggle
